@@ -172,8 +172,8 @@ set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
 set shellredir=\|\ Out-File\ -Encoding\ UTF8
 
 "Run code if compilation successfull
-autocmd filetype c nnoremap <f9> :w <bar> :terminal gcc % -o %:r ; if ($?) { %:r } <cr>
-autocmd filetype cpp nnoremap <f9> :w <bar> :terminal g++ -std=c++11 -O2 -Wall % -o %:r ; if ($?) { %:r } <cr>
+autocmd filetype c nnoremap <f9> :w <bar> :terminal gcc % -o %:r ; if ($?) { %:r:s?^?.\\? } <cr>
+autocmd filetype cpp nnoremap <f9> :w <bar> :terminal g++ -std=c++11 -O2 -Wall % -o %:r ; if ($?) { %:r:s?^?.\\? } <cr>
 autocmd filetype java nnoremap <f9> :w <bar> :terminal javac % ; if ($?) { java -classpath %:h %:t:r } <cr>
 autocmd filetype python nnoremap <f9> :w <bar> :terminal python % <cr>
 
