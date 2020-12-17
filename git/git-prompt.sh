@@ -19,7 +19,7 @@ else
 	PS1="$PS1"'\[\033[91m\]'               # change to light red
 	PS1="$PS1"'\h '                        # show hostname
 	PS1="$PS1"'\[\033[96m\]'               # change to light cyan
-	PS1="$PS1"'\w'                         # current working directory
+	PS1="$PS1"'\W'                         # current working directory
 	PS1="$PS1"'\[\033[94m\]'               # change to light blue
 	PS1="$PS1"']'                          # closing braces
 	if test -z "$WINELOADERNOEXEC"
