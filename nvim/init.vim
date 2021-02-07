@@ -23,7 +23,7 @@ call plug#end()
 
 "Air-line
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16_default'
+let g:airline_theme = 'tomorrow'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
@@ -70,14 +70,14 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-"if (has("nvim"))
-"  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"endif
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
 "Colorscheme
-colorscheme base16-material-darker
+colorscheme base16-one-light
 
-"Turn off colors for variable names in javaa
+"Turn off colors for variable names in java
 highlight link JavaIdentifier NONE
 
 "Splits at bottom and right
