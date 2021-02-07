@@ -23,7 +23,7 @@
     // Each one of them will appear in the 'New Tab' dropdown,
     //   and can be invoked from the commandline with `wt.exe -p xxx`
     // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
-    "theme": "dark",
+    "theme": "light",
 
     "profiles":
     {
@@ -34,8 +34,7 @@
           "cursorShape": "filledBox",
           "fontFace": "SauceCodePro NF",
           "fontWeight": "normal",
-          "colorScheme": "synthwave",
-          "background": "#212121"
+          "colorScheme": "One Half Light"
         },
 
         "list":
@@ -72,27 +71,6 @@
     // Add custom color schemes to this array.
     // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
     "schemes": [
-        {
-        "name": "synthwave",
-        "black": "#4c4c4c",
-        "red": "#f6188f",
-        "green": "#1ebb2b",
-        "yellow": "#fdf834",
-        "blue": "#2186ec",
-        "purple": "#f85a21",
-        "cyan": "#12c3e2",
-        "white": "#ffffff",
-        "brightBlack": "#555555",
-        "brightRed": "#f841a0",
-        "brightGreen": "#25c141",
-        "brightYellow": "#fdf454",
-        "brightBlue": "#2f9ded",
-        "brightPurple": "#f97137",
-        "brightCyan": "#19cde6",
-        "brightWhite": "#ffffff",
-        "background": "#040404",
-        "foreground": "#dad9c7"
-        }
     ],
 
     // Add custom keybindings to this array.
@@ -129,8 +107,8 @@
         { "command": { "action": "resizePane", "direction": "up" }, "keys": "ctrl+shift+k" },
 
         // Scrolling
-        { "command": "scrollUpPage", "keys": "ctrl+shift+k" },
-        { "command": "scrollDownPage", "keys": "ctrl+shift+j" },
+        // { "command": "scrollUpPage", "keys": "ctrl+shift+k" },
+        // { "command": "scrollDownPage", "keys": "ctrl+shift+j" },
 
         // Closing a pane
         { "command": "closePane", "keys": "alt+q" }
