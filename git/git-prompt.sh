@@ -10,17 +10,12 @@ then
 	. ~/.config/git/git-prompt.sh
 else
 	PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]' # set window title
-	PS1="$PS1"'\[\033[94m\]'               # change to light blue
+	PS1="$PS1"'\[\033[30m\]'               # change black
 	PS1="$PS1"'['                          # open braces
-	PS1="$PS1"'\[\033[34m\]'               # change to blue
 	PS1="$PS1"'\u'                         # user
-	PS1="$PS1"'\[\033[97m\]'               # change to white
 	PS1="$PS1"'@'                          # @
-	PS1="$PS1"'\[\033[91m\]'               # change to light red
 	PS1="$PS1"'\h '                        # show hostname
-	PS1="$PS1"'\[\033[96m\]'               # change to light cyan
 	PS1="$PS1"'\W'                         # current working directory
-	PS1="$PS1"'\[\033[94m\]'               # change to light blue
 	PS1="$PS1"']'                          # closing braces
 	if test -z "$WINELOADERNOEXEC"
 	then
@@ -32,14 +27,12 @@ else
 		then
 			. "$COMPLETION_PATH/git-completion.bash"
 			. "$COMPLETION_PATH/git-prompt.sh"
-			PS1="$PS1"'\[\033[36m\]'  # change color to cyan
 			PS1="$PS1"'`__git_ps1`'   # bash function
 		fi
 	fi
 	PS1="$PS1"'\n'                  # newline
-	PS1="$PS1"'\[\033[96m\]'        # change to light cyan
-	PS1="$PS1"'$ '                  # prompt: always $
-	PS1="$PS1"'\[\033[97m\]'        # change to white
+	PS1="$PS1"'$ '                  # prompt: $
+	PS1="$PS1"'\[\033[90m\]'        # change to light black
 fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
