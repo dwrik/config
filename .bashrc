@@ -5,6 +5,7 @@ alias la="lsd -a --color never"
 alias lla="lsd -la --color never"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias vim="nvim"
+alias vim="TERM=\"xterm-256color\" nvim"
+alias nvim="TERM=\"xterm-256color\" nvim"
 
 export TERM="cygwin"
