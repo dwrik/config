@@ -1,0 +1,10 @@
+alias l="lsd --color never"
+alias ls="lsd --color never"
+alias ll="lsd -l --color never"
+alias la="lsd -a --color never"
+alias lla="lsd -la --color never"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias vim="nvim"
+
+export TERM="cygwin"
