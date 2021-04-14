@@ -26,7 +26,7 @@
     "theme": "light",
 
     // Determines window size at launch
-    "launchMode": "maximized",
+    // "launchMode": "maximized",
 
     "profiles":
     {
@@ -35,7 +35,7 @@
           // Put settings here that you want to apply to all profiles.
           "fontSize": 12,
           "fontFace": "SauceCodePro NF",
-          "fontWeight": "normal",
+          "fontWeight": "semi-bold",
           "cursorShape": "filledBox",
           "colorScheme": "One Half Light"
         },
