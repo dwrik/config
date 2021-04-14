@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline'                 "vim status bar
 Plug 'chriskempson/base16-vim'                 "base16 colorscheme
 Plug 'vim-airline/vim-airline-themes'          "airline themes
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "nerdtree-syntax-highlighting
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} "markdown previewer
 
 "Plug 'dawikur/base16-vim-airline-themes'      "base16 airline
 "Plug 'rafi/awesome-vim-colorschemes'          "extra colorschemes
@@ -88,7 +89,7 @@ map <C-N> :NERDTreeToggle<return>
 let g:NERDTreeWinPos = "right"
 
 "Filetype specific settings
-autocmd BufNewFile,BufRead,filetype *.py,*.java,*.cpp,*.c,*.h,*.js,*.css,*.html
+autocmd BufNewFile,BufRead,filetype *.py,*.java,*.cpp,*.c,*.h,*.js,*.css,*.html,*.php,*.jsp
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
