@@ -76,7 +76,7 @@ if (has("nvim"))
 endif
 
 "Colorscheme
-colorscheme base16-one-light
+colorscheme base16-google-dark
 
 "Turn off colors for variable names in java
 highlight link JavaIdentifier NONE
