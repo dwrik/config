@@ -12,15 +12,12 @@ Plug 'vim-airline/vim-airline'                 "vim status bar
 Plug 'chriskempson/base16-vim'                 "base16 colorscheme
 Plug 'vim-airline/vim-airline-themes'          "airline themes
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "nerdtree-syntax-highlighting
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} "markdown previewer
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 "Plug 'dawikur/base16-vim-airline-themes'      "base16 airline
 "Plug 'rafi/awesome-vim-colorschemes'          "extra colorschemes
 
 call plug#end()
-
-"Favourable Colorschemes :
-"brewer, bright, chalk, darktooth, dracula, synth-midnight-dark, snazzy, seti, material, google-dark, harmonic, horizon-dark
 
 "Air-line
 let g:airline_powerline_fonts = 1
@@ -76,10 +73,19 @@ if (has("nvim"))
 endif
 
 "Colorscheme
-colorscheme base16-google-dark
+"colorscheme base16-snazzy
+"colorscheme base16-google-dark
+"colorscheme base16-default-dark
+"colorscheme base16-chalk
+"colorscheme base16-atelier-cave-light
+"colorscheme base16-forest-light
+"colorscheme base16-plateau-light
+"colorscheme base16-github
+colorscheme base16-one-light
 
 "Turn off colors for variable names in java
 highlight link JavaIdentifier NONE
+let python_highlight_all=1
 
 "Splits at bottom and right
 set splitbelow splitright
@@ -89,11 +95,20 @@ map <C-N> :NERDTreeToggle<return>
 let g:NERDTreeWinPos = "right"
 
 "Filetype specific settings
-autocmd BufNewFile,BufRead,filetype *.py,*.java,*.cpp,*.c,*.h,*.js,*.css,*.html,*.php,*.jsp
+autocmd BufNewFile,BufRead,filetype *.py,*.java,*.cpp,*.c,*.h,*.php,*.jsp
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set textwidth=120 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+autocmd BufNewFile,BufRead,filetype *.js,*.css,*.html
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set textwidth=80 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
@@ -164,9 +179,10 @@ set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
 set shellredir=\|\ Out-File\ -Encoding\ UTF8
 
 "Run code if compilation successfull
-autocmd filetype c nnoremap <f9> :w <bar> :terminal gcc % -o %:r ; if ($?) { %:r:s?^?.\\? } <cr>
-autocmd filetype cpp nnoremap <f9> :w <bar> :terminal g++ -std=c++11 -O2 -Wall % -o %:r ; if ($?) { %:r:s?^?.\\? } <cr>
-autocmd filetype java nnoremap <f9> :w <bar> :terminal javac % ; if ($?) { java -classpath %:h %:t:r } <cr>
+autocmd filetype c nnoremap <f9> :w <bar> :terminal gcc % -o %:r; if($?) { %:r:s?^?.\\? } <cr>
+autocmd filetype cpp nnoremap <f9> :w <bar> :terminal g++ -std=c++11 -O2 -Wall % -o %:h:s?$?\\a?; if($?) { %:h:s?$?\\a? } <cr>
+autocmd filetype java nnoremap <f9> :w <bar> :terminal javac %; if($?) { java -classpath %:h %:t:r } <cr>
 autocmd filetype python nnoremap <f9> :w <bar> :terminal python % <cr>
 
 "autocmd filetype c nnoremap <f9> :w <bar> terminal !make %:r && .%:r <cr>
+"autocmd filetype cpp nnoremap <f9> :w <bar> :terminal g++ -std=c++11 -O2 -Wall % -o %:r ; if ($?) { %:r:s?^?.\\? } <cr>

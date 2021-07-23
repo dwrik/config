@@ -10,7 +10,7 @@ then
 	. ~/.config/git/git-prompt.sh
 else
 	PS1='\[\033]0;$TIT31PREFIX:$PWD\007\]' # set window title
-	PS1="$PS1"'\[\033[37m\]'               # color white
+	PS1="$PS1"'\[\033[30m\]'               # color white
 	PS1="$PS1"'['                          # open braces
 	PS1="$PS1"'\u'                         # user
 	PS1="$PS1"'@'                          # @
@@ -32,7 +32,7 @@ else
 	fi
 	PS1="$PS1"'\n'                  # newline
 	PS1="$PS1"'$ '                  # prompt: $
-	PS1="$PS1"'\[\033[37m\]'        # change to white
+	PS1="$PS1"'\[\033[30m\]'        # change to white
 fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
