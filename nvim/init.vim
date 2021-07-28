@@ -178,6 +178,11 @@ set shell=powershell shellquote=( shellpipe=\| shellxquote=
 set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
 set shellredir=\|\ Out-File\ -Encoding\ UTF8
 
+"Java template
+autocmd BufNewFile *.java 0r ~\coding\templates\Template.java  "copies over FastIO template
+autocmd BufNewFile *.java %s/Template/\=expand('%:t:r')/g      "changes classname in template
+autocmd BufNewFile *.java :call cursor(47, 9)                  "moves cursor to main method
+
 "Run code if compilation successfull
 autocmd filetype c nnoremap <f9> :w <bar> :terminal gcc % -o %:r; if($?) { %:r:s?^?.\\? } <cr>
 autocmd filetype cpp nnoremap <f9> :w <bar> :terminal g++ -std=c++11 -O2 -Wall % -o %:h:s?$?\\a?; if($?) { %:h:s?$?\\a? } <cr>
