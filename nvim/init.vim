@@ -1,18 +1,18 @@
 call plug#begin(stdpath('data').'/plugged')
 
 Plug 'junegunn/goyo.vim'                       "zen mode
-Plug 'ervandew/supertab'                       "basic coc
-Plug 'preservim/nerdtree'                      "nerdtree
+Plug 'ervandew/supertab'                       "basic code completion
+Plug 'preservim/nerdtree'                      "filetree
 Plug 'sheerun/vim-polyglot'                    "language pack
 Plug 'Raimondi/delimitMate'                    "autoclosing of brackets
+Plug 'wakatime/vim-wakatime'                   "plugin for coding analytics
 Plug 'uiiaoo/java-syntax.vim'                  "java syntax highlighting
-Plug 'ryanoasis/vim-devicons'                  "file icons for airline/nerdtree
+Plug 'ryanoasis/vim-devicons'                  "file icons
 Plug 'vim-syntastic/syntastic'                 "syntax check
 Plug 'vim-airline/vim-airline'                 "vim status bar
 Plug 'chriskempson/base16-vim'                 "base16 colorscheme
 Plug 'vim-airline/vim-airline-themes'          "airline themes
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "nerdtree-syntax-highlighting
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "nerdtree syntax highlighting
 
 "Plug 'dawikur/base16-vim-airline-themes'      "base16 airline
 "Plug 'rafi/awesome-vim-colorschemes'          "extra colorschemes
@@ -72,16 +72,16 @@ if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-"Colorscheme
-"colorscheme base16-snazzy
+"Colorschemes
 "colorscheme base16-google-dark
 "colorscheme base16-default-dark
-"colorscheme base16-chalk
-"colorscheme base16-atelier-cave-light
 "colorscheme base16-forest-light
 "colorscheme base16-plateau-light
+"colorscheme base16-tomorrow-night
+"colorscheme base16-darktooth
+"colorscheme base16-one-light
 "colorscheme base16-github
-colorscheme base16-one-light
+colorscheme base16-tomorrow-night
 
 "Turn off colors for variable names in java
 highlight link JavaIdentifier NONE
@@ -182,6 +182,10 @@ set shellredir=\|\ Out-File\ -Encoding\ UTF8
 autocmd BufNewFile *.java 0r ~\coding\templates\Template.java  "copies over FastIO template
 autocmd BufNewFile *.java %s/Template/\=expand('%:t:r')/g      "changes classname in template
 autocmd BufNewFile *.java :call cursor(47, 9)                  "moves cursor to main method
+
+"HTML template
+autocmd BufNewFile *.html 0r ~\coding\templates\template.html  "copies over html template
+autocmd BufNewFile *.html :call cursor(9, 0)                   "moves cursor to main method
 
 "Run code if compilation successfull
 autocmd filetype c nnoremap <f9> :w <bar> :terminal gcc % -o %:r; if($?) { %:r:s?^?.\\? } <cr>
