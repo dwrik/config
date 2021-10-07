@@ -10,18 +10,13 @@ then
 	. ~/.config/git/git-prompt.sh
 else
 	PS1='\[\033]0;$TIT31PREFIX:$PWD\007\]' # set window title
-	PS1="$PS1"'\[\033[94m\]'               # color: light blue
-	PS1="$PS1"'['                          # open braces
-	PS1="$PS1"'\[\033[34m\]'               # change to blue
+	PS1="$PS1"'\[\033[32m\]'               # color: green
 	PS1="$PS1"'\u'                         # user
-	PS1="$PS1"'\[\033[97m\]'               # change to white
 	PS1="$PS1"'@'                          # @
-	PS1="$PS1"'\[\033[91m\]'               # change to light red
-	PS1="$PS1"'\h '                        # show hostname
-	PS1="$PS1"'\[\033[96m\]'               # change to light cyan
-	PS1="$PS1"'\W'                         # current working directory
-	PS1="$PS1"'\[\033[94m\]'               # change to light blue
-	PS1="$PS1"']'                          # closing braces
+	PS1="$PS1"'\h '                        # hostname
+	PS1="$PS1"'\[\033[33m\]'               # color: yellow
+	PS1="$PS1"'\W'                         # pwd
+	PS1="$PS1"'\[\033[34m\]'               # color: blue
 	if test -z "$WINELOADERNOEXEC"
 	then
 		GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
@@ -35,10 +30,9 @@ else
 			PS1="$PS1"'`__git_ps1`'   # bash function
 		fi
 	fi
-	PS1="$PS1"'\n'                  # newline
-	PS1="$PS1"'\[\033[96m\]'        # change to light cyan
-	PS1="$PS1"'$ '                  # prompt: $
-	PS1="$PS1"'\[\033[97m\]'        # change to white
+	PS1="$PS1"'\[\033[36m\]'        # color: cyan
+	PS1="$PS1"' $ '                 # prompt: $
+	PS1="$PS1"'\[\033[30m\]'        # color: black
 fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
