@@ -7,19 +7,20 @@ set belloff=all                 " Turn off bell for all events
 aug vimStartup | au! | aug END  " Revert last positioned jump, as it is defined below
 let g:skip_defaults_vim = 1     " Do not source defaults.vim again (after loading this system vimrc)
 
-set ai                          " set auto-indenting on for programming
-set si                          " set smart-indenting on for programming
+set foldlevel=99                " level of folding
+set foldmethod=indent           " method of folding
+set noswapfile                  " turn off swapfile
+set showmode                    " show the current mode
 set linebreak                   " doesn't wrap mid word
+set wildmenu                    " command line completion
 set hlsearch                    " highlights search match
-set incsearch                   " search as characters are typed
 set ignorecase                  " ignore case while searching
 set number relativenumber       " line number & relative number
+set incsearch                   " search as characters are typed
 set showmatch                   " automatically show matching brackets
-set showmode                    " show the current mode
+set autoindent                  " set auto-indenting on for programming
+set smartindent                 " set smart-indenting on for programming
 set clipboard=unnamed           " set clipboard to unnamed to access the system clipboard under windows
-set wildmenu                    " command line completion
-set foldmethod=indent           " method by which to fold
-set foldlevel=99                " level of folding
 
 " enable folding with space
 nnoremap <space> za
@@ -46,7 +47,7 @@ autocmd BufNewFile,BufRead,filetype *.java,*.py,*.js,*.css,*.html,*.cpp,*c,*h,*p
 
 " compile and run code
 autocmd filetype python nnoremap <f9> :w <bar> :!python % <return>
-autocmd filetype java nnoremap <f9> :w <bar> :!javac % && java -classpath %:h %:t:r <return>
+autocmd filetype java nnoremap <f9> :w <bar> :!javac % && java %:t:r <return>
 
 " enbale colors
 if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
