@@ -1,6 +1,14 @@
 " Setting some decent VIM settings for programming
 " This source file comes from git-for-windows build-extra repository (git-extra/vimrc)
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'ervandew/supertab'        " tab completion
+Plug 'wakatime/vim-wakatime'    " wakatime metrics
+Plug 'vim-syntastic/syntastic'  " syntax checker
+
+call plug#end()
+
 ru! defaults.vim                " Use Enhanced Vim defaults
 set mouse=                      " Reset the mouse setting from defaults
 set belloff=all                 " Turn off bell for all events
@@ -21,6 +29,7 @@ set showmatch                   " automatically show matching brackets
 set autoindent                  " set auto-indenting on for programming
 set smartindent                 " set smart-indenting on for programming
 set clipboard=unnamed           " set clipboard to unnamed to access the system clipboard under windows
+set omnifunc=syntaxcomplete#Complete " turn on omnicompletion (check autoload directory)
 
 " enable folding with space
 nnoremap <space> za
@@ -46,8 +55,8 @@ autocmd BufNewFile,BufRead,filetype *.java,*.py,*.js,*.css,*.html,*.cpp,*c,*h,*p
     \ set fileformat=unix
 
 " compile and run code
-autocmd filetype python nnoremap <f9> :w <bar> :!python % <return>
-autocmd filetype java nnoremap <f9> :w <bar> :!javac % && java %:t:r <return>
+autocmd filetype python nnoremap <f9> :w <bar> :!clear && python % <return>
+autocmd filetype java nnoremap <f9> :w <bar> :!clear && javac % && java %:t:r <return>
 
 " enbale colors
 if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
